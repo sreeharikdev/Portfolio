@@ -546,6 +546,45 @@ a {
   border-radius: 24px;
 }
 
+.certificate-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.certificate-card::after {
+  content: "";
+  position: absolute;
+  right: -48px;
+  bottom: -52px;
+  width: 150px;
+  height: 150px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(199, 81, 45, 0.18), transparent 68%);
+  pointer-events: none;
+}
+
+.certificate-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 16px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.certificate-link::after {
+  content: "PDF";
+  margin-left: 10px;
+  padding: 4px 8px;
+  border: 1px solid rgba(199, 81, 45, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.78);
+  color: var(--text);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
 .project-card h3,
 .skill-card h3,
 .qualification-card h3 {
