@@ -535,7 +535,7 @@ a {
 }
 
 .qualification-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .project-card,
@@ -583,6 +583,29 @@ a {
   color: var(--text);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
+}
+
+.badge-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-image-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  min-height: 170px;
+  margin: 2px 0 18px;
+  border: 1px solid rgba(29, 27, 24, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 250, 240, 0.72);
+}
+
+.profile-badge-image {
+  display: block;
+  width: min(142px, 44vw);
+  height: auto;
 }
 
 .project-card h3,
