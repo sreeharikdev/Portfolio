@@ -10,7 +10,8 @@
   --shadow: 0 20px 60px rgba(57, 39, 17, 0.12);
 }
 
-:root[data-theme="dark"] {
+:root[data-theme="dark"],
+:root.dark-mode {
   color-scheme: dark;
   --bg: #141619;
   --surface: rgba(31, 35, 40, 0.78);
@@ -43,7 +44,8 @@ body {
   transition: background-color 220ms ease, color 220ms ease;
 }
 
-:root[data-theme="dark"] body {
+:root[data-theme="dark"] body,
+:root.dark-mode body {
   background:
     radial-gradient(circle at top left, rgba(199, 81, 45, 0.2), transparent 30%),
     radial-gradient(circle at 80% 20%, rgba(77, 137, 126, 0.2), transparent 24%),
@@ -196,10 +198,15 @@ a {
 }
 
 :root[data-theme="dark"] .button-secondary,
+:root.dark-mode .button-secondary,
 :root[data-theme="dark"] .handyhub-chip-row span,
+:root.dark-mode .handyhub-chip-row span,
 :root[data-theme="dark"] .certificate-link::after,
+:root.dark-mode .certificate-link::after,
 :root[data-theme="dark"] .badge-image-link,
-:root[data-theme="dark"] .handyhub-media-panel {
+:root.dark-mode .badge-image-link,
+:root[data-theme="dark"] .handyhub-media-panel,
+:root.dark-mode .handyhub-media-panel {
   background: var(--surface-strong);
   color: var(--text);
 }
@@ -747,11 +754,13 @@ a:focus-visible {
   transform: translateY(0);
 }
 
-:root[data-theme="dark"] .demo-placeholder {
+:root[data-theme="dark"] .demo-placeholder,
+:root.dark-mode .demo-placeholder {
   border-color: rgba(245, 241, 233, 0.22);
 }
 
-:root[data-theme="dark"] .badge-image-link {
+:root[data-theme="dark"] .badge-image-link,
+:root.dark-mode .badge-image-link {
   border-color: var(--line);
 }
 

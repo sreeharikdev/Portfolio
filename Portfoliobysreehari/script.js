@@ -6,11 +6,13 @@ const themeStorageKey = "portfolio-theme";
 function setTheme(theme) {
   const isDark = theme === "dark";
   document.documentElement.dataset.theme = isDark ? "dark" : "light";
+  document.documentElement.classList.toggle("dark-mode", isDark);
 
   if (themeToggle) {
     themeToggle.setAttribute("aria-pressed", String(isDark));
     themeToggle.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} mode`);
-    themeToggle.querySelector(".theme-toggle-icon").textContent = isDark ? "☀" : "☾";
+    themeToggle.querySelector(".theme-toggle-icon").textContent = isDark ? "\\u2600" : "\\u263e";
+    themeToggle.querySelector(".theme-toggle-icon").textContent = String.fromCharCode(isDark ? 0x2600 : 0x263e);
     themeToggle.querySelector(".theme-toggle-label").textContent = isDark ? "Light mode" : "Dark mode";
   }
 }
@@ -22,8 +24,7 @@ try {
 } catch {
   // Theme switching still works if the browser blocks local storage.
 }
-const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-setTheme(savedTheme || preferredTheme);
+setTheme(savedTheme === "dark" ? "dark" : "light");
 
 themeToggle?.addEventListener("click", () => {
   const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
