@@ -15,14 +15,25 @@ function setTheme(theme) {
   }
 }
 
-const savedTheme = localStorage.getItem(themeStorageKey);
+let savedTheme = null;
+
+try {
+  savedTheme = localStorage.getItem(themeStorageKey);
+} catch {
+  // Theme switching still works if the browser blocks local storage.
+}
 const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 setTheme(savedTheme || preferredTheme);
 
 themeToggle?.addEventListener("click", () => {
   const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   setTheme(nextTheme);
-  localStorage.setItem(themeStorageKey, nextTheme);
+
+  try {
+    localStorage.setItem(themeStorageKey, nextTheme);
+  } catch {
+    // Keep the selected theme for the current visit when storage is unavailable.
+  }
 });
 
 const revealObserver = new IntersectionObserver(
