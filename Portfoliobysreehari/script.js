@@ -24,7 +24,7 @@ try {
 } catch {
   // Theme switching still works if the browser blocks local storage.
 }
-setTheme(savedTheme === "dark" ? "dark" : "light");
+setTheme(savedTheme === "light" ? "light" : "dark");
 
 themeToggle?.addEventListener("click", () => {
   const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
