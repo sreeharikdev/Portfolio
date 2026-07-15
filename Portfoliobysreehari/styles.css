@@ -95,7 +95,7 @@ a {
   height: 40px;
   border-radius: 12px;
   background: var(--text);
-  color: #fffaf0;
+  color: var(--bg);
 }
 
 .nav-links {
