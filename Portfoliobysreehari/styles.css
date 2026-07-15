@@ -10,6 +10,19 @@
   --shadow: 0 20px 60px rgba(57, 39, 17, 0.12);
 }
 
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #141619;
+  --surface: rgba(31, 35, 40, 0.78);
+  --surface-strong: #252a30;
+  --text: #f5f1e9;
+  --muted: #c2c6c9;
+  --line: rgba(245, 241, 233, 0.16);
+  --accent: #ff9b73;
+  --accent-soft: #a95439;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -27,6 +40,14 @@ body {
     radial-gradient(circle at 80% 20%, rgba(77, 137, 126, 0.2), transparent 24%),
     linear-gradient(180deg, #f8f3ea 0%, #efe7d6 100%);
   font-family: "Manrope", sans-serif;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+:root[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at top left, rgba(199, 81, 45, 0.2), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(77, 137, 126, 0.2), transparent 24%),
+    linear-gradient(180deg, #181b20 0%, #0e1013 100%);
 }
 
 a {
@@ -172,6 +193,15 @@ a {
 .button-secondary {
   background: rgba(255, 250, 240, 0.9);
   border: 1px solid var(--line);
+}
+
+:root[data-theme="dark"] .button-secondary,
+:root[data-theme="dark"] .handyhub-chip-row span,
+:root[data-theme="dark"] .certificate-link::after,
+:root[data-theme="dark"] .badge-image-link,
+:root[data-theme="dark"] .handyhub-media-panel {
+  background: var(--surface-strong);
+  color: var(--text);
 }
 
 .hero-card {
@@ -680,6 +710,44 @@ a {
   background: var(--surface-strong);
 }
 
+.theme-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: transform 180ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.theme-toggle:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.theme-toggle-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -689,6 +757,14 @@ a {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+:root[data-theme="dark"] .demo-placeholder {
+  border-color: rgba(245, 241, 233, 0.22);
+}
+
+:root[data-theme="dark"] .badge-image-link {
+  border-color: var(--line);
 }
 
 @media (max-width: 920px) {
