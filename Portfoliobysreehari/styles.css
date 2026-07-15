@@ -189,7 +189,7 @@ a {
 
 .button-primary {
   background: var(--text);
-  color: #fffaf0;
+  color: var(--bg);
 }
 
 .button-secondary {
